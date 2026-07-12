@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeltaMat | Matematik Portalı</title>
+    <style>
+        :root { --cream: #F5F2ED; --primary: #2C3E50; }
+        body { background-color: var(--cream); font-family: 'Segoe UI', sans-serif; margin: 0; color: var(--primary); }
+        
+        /* Navbar */
+        nav { display: flex; justify-content: space-between; padding: 20px 5%; align-items: center; }
+        .logo { font-weight: bold; font-size: 1.5rem; }
+        
+        /* Hero Section */
+        header { text-align: center; padding: 50px 20px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        
+        /* Kartlar */
+        .grid { display: flex; justify-content: center; gap: 20px; padding: 20px; flex-wrap: wrap; }
+        .card { background: white; padding: 20px; border-radius: 15px; width: 250px; text-align: center; 
+                transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: pointer; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .color-box { height: 120px; border-radius: 10px; margin-bottom: 15px; }
+        
+        /* Özellikler */
+        .features { display: flex; justify-content: center; gap: 40px; padding: 50px; }
+        .feature-item { text-align: center; max-width: 200px; }
+        
+        footer { text-align: center; padding: 30px; font-size: 0.9rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DeltaMat</div>
+        <div>Ana Sayfa | Hesaplayıcılar | İletişim</div>
+    </nav>
+
+    <header>
+        <h1>DeltaMat</h1>
+        <p>Geometri ve matematik hesaplamalarında hızlı, güvenilir ve pratik çözüm ortağınız.</p>
+    </header>
+
+    <div class="grid">
+        <div class="card" onclick="location.href='hipotenus.html'">
+            <div class="color-box" style="background: #CD853F;"></div>
+            <h3>Hipotenüs Hesaplayıcı</h3>
+        </div>
+        <div class="card">
+            <div class="color-box" style="background: #1B5E20;"></div>
+            <h3>Daire Çevresi</h3>
+        </div>
+        <div class="card">
+            <div class="color-box" style="background: #E64A19;"></div>
+            <h3>Daire Alanı</h3>
+        </div>
+    </div>
+
+    <section class="features">
+        <div class="feature-item"><h4>⚡ Hızlı</h4><p>Saniyeler içinde sonuç alın.</p></div>
+        <div class="feature-item"><h4>🛡️ Reklamsız</h4><p>Kesintisiz kullanıcı deneyimi.</p></div>
+        <div class="feature-item"><h4>📱 Mobil Uyumlu</h4><p>Her cihazda mükemmel tasarım.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DeltaMat - Tüm hakları saklıdır.</p>
+    </footer>
+
+</body>
+</html>
