@@ -64,7 +64,18 @@
         .calc-button { cursor: pointer; transition: 0.3s; }
         .calc-button:hover { background-color: #4a637d; }
 
-        .info-block { flex: 1; padding: 30px; border: var(--panel-border); border-radius: 20px; text-align: center; }
+        .info-block { 
+            flex: 1; 
+            padding: 30px; 
+            border: var(--panel-border); 
+            border-radius: 20px; 
+            text-align: center; 
+            /* Şu iki satırı ekle: */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+        }
+
         .info-block h2 { font-family: 'Special Elite', cursive; margin-top: 0; }
 
         @media (max-width: 768px) {
