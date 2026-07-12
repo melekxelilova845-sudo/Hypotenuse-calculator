@@ -83,6 +83,20 @@
             </aside>
         </main>
     </div>
+    <script>
+        function calculate() {
+            let a = document.getElementById('sideA').value;
+            let b = document.getElementById('sideB').value;
+            let resultDiv = document.getElementById('result');
+
+            if (a && b) {
+                let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+                resultDiv.innerText = "Result: " + c.toFixed(2);
+            } else {
+                resultDiv.innerText = "Please enter values!";
+            }
+        }
+    </script>
 
 </body>
 </html>
