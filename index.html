@@ -1,102 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeltaMath</title>
-    <!-- Fontlar -->
+    <title>DeltaMath - Hypotenuse Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Special+Elite&display=swap" rel="stylesheet">
-    
     <style>
+        :root {
+            --bg-color: #2c3e50;
+            --card-bg: #fdfaf0;
+            --text-color: #2c3e50;
+            --button-bg: #34495e;
+            --button-text: #ffffff;
+            --panel-border: 2px dashed #2c3e50;
+        }
+
         body {
-            background-color: #2c3e50;
+            background-color: var(--bg-color);
             margin: 0;
-            padding: 20px;
             font-family: 'Patrick Hand', cursive;
-            color: #2c3e50;
+            color: var(--text-color);
             display: flex;
             justify-content: center;
-        }
-
-        .container {
-            background-color: #fdfaf0;
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        header { text-align: center; border-bottom: 2px solid #2c3e50; padding-bottom: 15px; margin-bottom: 25px; }
-        .feather { width: 60px; display: block; margin: 0 auto; }
-        h1 { font-family: 'Special Elite', cursive; font-size: 2.5em; margin: 10px 0; }
-
-        .content { display: flex; flex-direction: column; gap: 20px; }
-
-        .left-panel { display: flex; flex-direction: column; gap: 15px; }
-        
-        input, button, .result {
-            padding: 18px;
-            border-radius: 12px;
-            border: none;
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            font-size: 1.2em;
-            font-family: 'Patrick Hand', cursive;
-            width: 100%;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
             box-sizing: border-box;
         }
 
-        .right-panel {
-            border: 2px dashed #2c3e50;
-            padding: 20px;
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 1000px; /* Artırılmış genişlik */
+            background-color: var(--card-bg);
             border-radius: 20px;
-            text-align: center;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
-        .right-panel h3 { font-family: 'Special Elite', cursive; margin-top: 0; font-size: 1.4em; }
-        .contact { font-size: 0.85em; margin-top: 15px; color: #555; }
+        /* --- Üst Bilgi Bölümü --- */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .feather-icon {
+            width: 120px; /* Tüy görseli büyütüldü */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Special Elite', cursive;
+            font-size: 3.5em;
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #555;
+            margin: 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Ana İçerik Bölümü (Farklı Bloklar) --- */
+        .content-wrapper {
+            display: flex;
+            flex-direction: row; /* Yan yana bloklar */
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        /* Hesaplama Bloğu (Sol) */
+        .calculator-block {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-right: 20px;
+            border-right: 1px solid #eee; /* Blokları ayırmak için çizgi */
+        }
+
+        .calc-input, .calc-button, .calc-result {
+            width: 100%;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.3em;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .calc-input {
+            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            font-family: 'Patrick Hand', cursive;
+        }
+
+        .calc-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .calc-button {
+            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            font-family: 'Patrick Hand', cursive;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .calc-button:hover {
+            background-color: #4a637d;
+        }
+
+        .calc-result {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+        }
+
+        /* 'How to use?' Bloğu (Sağ) */
+        .info-block {
+            flex: 1;
+            padding: 30px;
+            border: var(--panel-border);
+            border-radius: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255,255,255,0.5);
+        }
+
+        .info-block h2 {
+            font-family: 'Special Elite', cursive;
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .info-block p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: auto;
+        }
+
+        /* --- Responsive Ayarları (Tablet/Mobil) --- */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 20px;
+                width: 95%;
+            }
+            .content-wrapper {
+                flex-direction: column; /* Küçük ekranda alt alta */
+            }
+            .calculator-block {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+            }
+            h1 { font-size: 2.5em; }
+            .feather-icon { width: 80px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="main-container">
         <header>
-            <img src="tuy.png" alt="tüy" class="feather">
+            <img src="tuy.png" alt="Large Feather Icon" class="feather-icon"> <!-- Büyütülmüş Tüy -->
             <h1>DeltaMath</h1>
             <p>Your fast, reliable, and practical solution partner for geometry and mathematics calculations.</p>
         </header>
 
-        <main class="content">
-            <div class="left-panel">
-                <input type="number" id="sideA" placeholder="Side A">
-                <input type="number" id="sideB" placeholder="Side B">
-                <button onclick="calculate()">Calculate</button>
-                <div class="result" id="result">Result will appear here</div>
+        <div class="content-wrapper">
+            <!-- Hesaplama Bloğu (Sol) -->
+            <div class="calculator-block">
+                <input type="text" placeholder="Side A" class="calc-input">
+                <input type="text" placeholder="Side B" class="calc-input">
+                <button class="calc-button">Calculate</button>
+                <div class="calc-result">Result will appear here</div>
             </div>
 
-            <aside class="right-panel">
-                <h3>How to use?</h3>
+            <!-- 'How to use?' Bloğu (Sağ) -->
+            <div class="info-block">
+                <h2>How to use?</h2>
                 <p>Enter the lengths of the two legs (a and b) of the right-angled triangle. Click 'Calculate' to find the length of the hypotenuse (c).</p>
-                <p class="contact">Contact:DeltaMathgmail.com</p>
-            </aside>
-        </main>
+                <p class="contact-info">Contact:DeltaMathgmail.com</p>
+            </div>
+        </div>
     </div>
-    <script>
-        function calculate() {
-            let a = document.getElementById('sideA').value;
-            let b = document.getElementById('sideB').value;
-            let resultDiv = document.getElementById('result');
-
-            if (a && b) {
-                let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
-                resultDiv.innerText = "Result: " + c.toFixed(2);
-            } else {
-                resultDiv.innerText = "Please enter values!";
-            }
-        }
-    </script>
 
 </body>
 </html>
