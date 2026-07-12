@@ -6,7 +6,7 @@
 ​Technologies Used
 ​HTML5: For the structural layout of the web application.  
 ​CSS: For styling and creating a clean, user-friendly interface.  
-​JavaScript: For implementing the Pythagorean theorem logic (calculating the hypotenuse using c = \sqrt{a^2 + b^2}).  
+​JavaScript: For implementing the Pythagorean theorem logic.
 ​How It Works
 ​Enter the lengths of the two legs (a and b) into the input fields.  
 ​Click the 'Calculate' button.  
