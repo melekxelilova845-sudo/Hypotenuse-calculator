@@ -2,13 +2,65 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Hipotenüs Hesaplayıcı</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Hipotenüs Hesaplayıcı</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; }
-        .container { border: 1px solid #ccc; padding: 20px; border-radius: 8px; box-shadow: 2px 2px 10px #eee; }
-        input { display: block; margin: 10px 0; padding: 8px; width: 200px; }
-        button { padding: 10px 20px; background-color: #28a745; color: white; border: none; cursor: pointer; }
-        #sonuc { margin-top: 20px; font-weight: bold; }
+        :root {
+            --primary-color: #6366f1;
+            --bg-color: #f3f4f6;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-color);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0;
+        }
+        .container { 
+            background: white;
+            padding: 2.5rem; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 { color: #1f2937; margin-bottom: 1.5rem; }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            border: 2px solid #e5e7eb; 
+            border-radius: 10px; 
+            box-sizing: border-box; /* Padding'in genişliği bozmaması için */
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input:focus { border-color: var(--primary-color); }
+        button { 
+            width: 100%;
+            padding: 12px; 
+            background-color: var(--primary-color); 
+            color: white; 
+            border: none; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: transform 0.1s, background 0.3s;
+        }
+        button:hover { background-color: #4f46e5; }
+        button:active { transform: scale(0.98); }
+        #sonuc { 
+            margin-top: 20px; 
+            font-size: 1.2rem; 
+            color: #374151;
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -18,24 +70,23 @@
     <input type="number" id="kenar1" placeholder="1. Dik Kenar">
     <input type="number" id="kenar2" placeholder="2. Dik Kenar">
     <button onclick="hesapla()">Hesapla</button>
-    <div id="sonuc"></div>
+    <div id="sonuc">Sonuç burada görünecek</div>
 </div>
 
 <script>
     function hesapla() {
         const a = parseFloat(document.getElementById('kenar1').value);
         const b = parseFloat(document.getElementById('kenar2').value);
+        const sonucDiv = document.getElementById('sonuc');
         
-        if (a > 0 && b > 0) {
-            // Pisagor teoremi: c = sqrt(a^2 + b^2)
+        if (!isNaN(a) && !isNaN(b) && a > 0 && b > 0) {
             const c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
-            document.getElementById('sonuc').innerText = "Hipotenüs: " + c.toFixed(2);
+            sonucDiv.innerHTML = "<strong>Hipotenüs:</strong> " + c.toFixed(2);
         } else {
-            document.getElementById('sonuc').innerText = "Lütfen geçerli sayılar girin!";
+            sonucDiv.innerHTML = "<span style='color:red;'>Lütfen geçerli sayılar girin!</span>";
         }
     }
 </script>
 
 </body>
 </html>
-
