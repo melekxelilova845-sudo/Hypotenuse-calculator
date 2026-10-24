@@ -1,6 +1,5 @@
 # Hypotenuse-calculator
-​DeltaMath
-​DeltaMath is a practical web-based calculator designed to solve right-angled triangle problems by calculating the length of the hypotenuse.  
+​This site is a practical web-based calculator designed to solve right-angled triangle problems by calculating the length of the hypotenuse.  
 ​Purpose
 ​The main purpose of this project is to bridge the gap between mathematical concepts and web development. It serves as a tool for quick geometric calculations while demonstrating the integration of logic and user interface design.  
 ​Technologies Used
